@@ -15,6 +15,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { LoginComponent } from './views/login/login.component';
 import { DashboardComponent } from './views/childview/dashboard/dashboard.component';
 import { MainComponent } from './views/main/main.component';
+import { ErrorInterceptorProvider } from './_services/error.interceptor';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,9 @@ import { MainComponent } from './views/main/main.component';
     MatCardModule,
     MatMenuModule
   ],
-  providers: [],
+  providers: [
+    ErrorInterceptorProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
