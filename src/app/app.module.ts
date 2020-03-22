@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule,APP_INITIALIZER } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -15,7 +15,13 @@ import { MatMenuModule } from '@angular/material/menu';
 import { LoginComponent } from './views/login/login.component';
 import { DashboardComponent } from './views/childview/dashboard/dashboard.component';
 import { MainComponent } from './views/main/main.component';
+<<<<<<< HEAD
 import { ErrorInterceptorProvider } from './services/error.interceptor';
+=======
+import { ErrorInterceptorProvider } from './_services/error.interceptor';
+import { HttpClientModule } from '@angular/common/http';
+import { AppConfigService } from './service/app-config.service';
+>>>>>>> added AppConfigService
 
 @NgModule({
   declarations: [
@@ -36,10 +42,22 @@ import { ErrorInterceptorProvider } from './services/error.interceptor';
     MatListModule,
     MatGridListModule,
     MatCardModule,
-    MatMenuModule
+    MatMenuModule,
+    HttpClientModule
   ],
   providers: [
-    ErrorInterceptorProvider
+    ErrorInterceptorProvider,
+    {
+      provide: APP_INITIALIZER,
+      multi: true,
+      deps: [AppConfigService],
+      useFactory: (appConfigService: AppConfigService) => {
+        return () => {
+          //Make sure to return a promise!
+          return appConfigService.loadAppConfig();
+        };
+      }
+    }
   ],
   bootstrap: [AppComponent]
 })
