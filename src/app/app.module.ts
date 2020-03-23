@@ -15,13 +15,9 @@ import { MatMenuModule } from '@angular/material/menu';
 import { LoginComponent } from './views/login/login.component';
 import { DashboardComponent } from './views/childview/dashboard/dashboard.component';
 import { MainComponent } from './views/main/main.component';
-<<<<<<< HEAD
 import { ErrorInterceptorProvider } from './services/error.interceptor';
-=======
-import { ErrorInterceptorProvider } from './_services/error.interceptor';
 import { HttpClientModule } from '@angular/common/http';
-import { AppConfigService } from './service/app-config.service';
->>>>>>> added AppConfigService
+import { AppConfigService } from './services/app-config.service';
 
 @NgModule({
   declarations: [
