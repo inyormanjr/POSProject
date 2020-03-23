@@ -15,7 +15,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { LoginComponent } from './views/login/login.component';
 import { DashboardComponent } from './views/childview/dashboard/dashboard.component';
 import { MainComponent } from './views/main/main.component';
-import { ErrorInterceptorProvider } from './_services/error.interceptor';
+import { ErrorInterceptorProvider } from './services/error.interceptor';
 
 @NgModule({
   declarations: [
