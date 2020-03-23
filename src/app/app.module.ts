@@ -29,7 +29,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { DashboardComponent } from './views/childview/dashboard/dashboard.component';
 import { MainComponent } from './views/main/main.component';
-import { AppConfigService } from './service/app-config.service';
+import { ErrorInterceptorProvider } from './services/error.interceptor';
+import { HttpClientModule } from '@angular/common/http';
+import { AppConfigService } from './services/app-config.service';
 
 @NgModule({
   declarations: [
