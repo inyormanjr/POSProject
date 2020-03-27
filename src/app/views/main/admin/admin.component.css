@@ -1,0 +1,48 @@
+.fill-remaining-space {
+  /* This fills the remaining space, by using flexbox. 
+     Every toolbar row uses a flexbox row layout. */
+  flex: 1 1 auto;
+}
+
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 250px;
+}
+
+.sidenav .mat-toolbar .image-sidenav {
+  height: 100px;
+  width: 100px;
+  border: 5px solid white;
+  border-radius: 50%;
+
+}
+
+
+.sidenav .mat-toolbar {
+  margin: 60px 0px 60px 0px;
+  padding: 0;
+  background-image: url("https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+  background: inherit;
+  justify-content: center;
+  text-align: center;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.image-button {
+  margin:0;
+  width: 0;
+  padding: 0;
+}
+.image-cirlce {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  border: 2px solid white;
+}

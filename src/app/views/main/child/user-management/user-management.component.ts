@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { User, MockData } from 'src/app/models/user';
+import { Component, OnInit } from '@angular/core';
+
 @Component({
   selector: 'app-user-management',
   templateUrl: './user-management.component.html',
@@ -7,7 +7,6 @@ import { User, MockData } from 'src/app/models/user';
 })
 export class UserManagementComponent implements OnInit {
 
-  userList: User[];
   constructor() { }
 
   ngOnInit(): void {
