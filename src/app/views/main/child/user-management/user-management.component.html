@@ -1,1 +1,31 @@
-<p>user-management works!</p>
+<mat-toolbar fxFlexAlign="start"  fxLayout="row wrap"  fxLayoutGap="20px">
+  <h3>User Management</h3>
+</mat-toolbar>
+
+<div  fxLayout='column wrap' class="content-container">
+  <span fxLayout="row" fxLayoutAlign="space-between"  class="menu">
+    <form >
+      <mat-form-field >
+        <mat-label>Search User</mat-label>
+        <input matInput placeholder="Ex. lebron James" value="">
+      </mat-form-field>
+      <button mat-icon-button >
+          <mat-icon class="mat-18">search</mat-icon>
+      </button>
+    </form>
+
+    <span class="button-group">
+      <button mat-icon-button (click)="showCreateDialog()" >
+          <mat-icon class="mat-18">add</mat-icon>
+      </button>
+      <button mat-icon-button >
+        <mat-icon class="mat-18">refresh</mat-icon>
+    </button>
+    </span>
+  </span>
+  <app-user-table [users]="dataSource"></app-user-table>
+ 
+
+</div>
+
+  

@@ -7,15 +7,15 @@
       <div fxLayoutAlign="start"  fxLayout="column">
         <img class="image-sidenav" src="https://cdn.fastly.picmonkey.com/contentful/h6goo9gw1hh6/2sNZtFAWOdP1lmQ33VwRN3/24e953b920a9cd0ff2e1d587742a2472/1-intro-photo-final.jpg?w=800&q=70" alt="">
         <small class="text-muted">nyornyor
-         <a href="" mat-button>
-           
-         </a>
+         <button  mat-icon-button>
+           <mat-icon class="mat-1">settings</mat-icon>
+         </button>
         </small>
       </div>
     </mat-toolbar>
     <mat-divider>
     </mat-divider>
-    <mat-nav-list color="accent">
+    <mat-nav-list>
       <a mat-list-item href="admin/dashboard">
         <mat-icon class="mat-18">dashboard</mat-icon>
         <small class="text-muted">Dashboard</small>
@@ -40,22 +40,24 @@
         <span> ERP </span>
       </span>
       <span class="fill-remaining-space"></span>
+      <span fxLayout="row wrap" fxLayoutAlign="space-around"  fxLayoutGap="30px" class="button-group">
+        
       <span>
-        <a  mat-button>
+        <button  mat-icon-button>
           <mat-icon class="mat-18">notifications</mat-icon>
-        </a>
+        </button>
       </span>
       <span>
-        <a mat-button>
+        <button mat-icon-button>
           <mat-icon class="mat-18">message</mat-icon>
-        </a>
+        </button>
       </span>
       <span>
-        <a class="image-button" mat-button
+        <button class="image-button" mat-icon-button
         [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu"
         >
           <img class="image-cirlce" src="https://cdn.fastly.picmonkey.com/contentful/h6goo9gw1hh6/2sNZtFAWOdP1lmQ33VwRN3/24e953b920a9cd0ff2e1d587742a2472/1-intro-photo-final.jpg?w=800&q=70" alt="">
-        </a>
+      </button>
         <mat-menu class="profile-menu" #menu="matMenu">
           <button mat-menu-item>
             <mat-icon>account_box</mat-icon>
@@ -66,6 +68,7 @@
             <span>Log-Out</span>
           </button>
         </mat-menu>
+      </span>
       </span>
     </mat-toolbar>
     <router-outlet></router-outlet>

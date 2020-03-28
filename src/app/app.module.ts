@@ -19,6 +19,12 @@ import { MatMenuModule } from '@angular/material/menu';
 import { LoginComponent } from './views/login/login.component';
 import { UserManagementComponent } from './views/main/child/user-management/user-management.component';
 import { AdminComponent } from './views/main/admin/admin.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MaterialModule } from './modules/material/material.module';
+import { UserTableComponent } from './components/user-table/user-table.component';
+import { UserModalComponent } from './components/modals/user-modal/user-modal.component';
+import { ConfirmComponent } from './components/modals/confirm/confirm.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +33,9 @@ import { AdminComponent } from './views/main/admin/admin.component';
     LoginComponent,
     UserManagementComponent,
     AdminComponent,
+    UserTableComponent,
+    UserModalComponent,
+    ConfirmComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,14 +43,7 @@ import { AdminComponent } from './views/main/admin/admin.component';
     FlexLayoutModule,
     BrowserAnimationsModule,
     LayoutModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,
-    MatGridListModule,
-    MatCardModule,
-    MatMenuModule,
+    MaterialModule
   ],
   providers: [
     ErrorInterceptorProvider

@@ -30,15 +30,15 @@
   text-align: center;
 }
 
+.sidenav .mat-toolbar a{
+  margin:0;
+  padding: 0;
+}
+
 .mat-toolbar.mat-primary {
   position: sticky;
   top: 0;
   z-index: 1;
-}
-.image-button {
-  margin:0;
-  width: 0;
-  padding: 0;
 }
 .image-cirlce {
   height: 35px;
