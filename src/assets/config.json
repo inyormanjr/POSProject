@@ -1,0 +1,13 @@
+{
+    "identityServer": {
+        "issuer" : "https://yespos.azurewebsites.net/identity",
+        "redirectUri": "",
+        "clientId": "client",
+        "responseType": "id_token token",
+        "scope": "storeapi",
+        "tokenEndpoint": "https://yespos.azurewebsites.net/identity/connect/token",
+        "showDebugInformation": true,
+        "requireHttps": false,
+        "dummyClientSecret" : "511536EF-F270-4058-80CA-1C89C192F69A"
+    }
+}
