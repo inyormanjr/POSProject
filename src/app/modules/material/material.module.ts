@@ -13,7 +13,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-import { MatDialogModule, MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialogModule, MatDialog } from '@angular/material/dialog';
+import { MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 
@@ -37,6 +38,7 @@ import { MatDialogModule, MatDialog, MatDialogRef } from '@angular/material/dial
     MatTableModule,
     MatSlideToggleModule,
     MatDialogModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     MatIconModule,
@@ -55,10 +57,10 @@ import { MatDialogModule, MatDialog, MatDialogRef } from '@angular/material/dial
     MatTableModule,
     MatSlideToggleModule,
     MatDialogModule,
+    MatProgressSpinnerModule
   ],
   providers: [
   MatDialog
 ]
-  
 })
 export class MaterialModule { }
