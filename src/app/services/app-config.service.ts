@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { AuthConfig } from 'angular-oauth2-oidc';
 
 @Injectable({
   providedIn: 'root'
@@ -19,12 +20,12 @@ export class AppConfigService {
   }
 
   // This is an example property ... you can make it however you want.
-  get apiBaseUrl() {
+  get authConfig(): AuthConfig {
 
     if (!this.appConfig) {
       throw Error('Config file not loaded!');
     }
 
-    return this.appConfig.apiBaseUrl;
+    return this.appConfig.identityServer;
   }
 }
