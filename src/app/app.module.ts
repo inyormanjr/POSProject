@@ -54,7 +54,7 @@ import { AppConfigService } from './services/app-config.service';
       deps: [AppConfigService],
       useFactory: (appConfigService: AppConfigService) => {
         return () => {
-          //Make sure to return a promise!
+          // Make sure to return a promise!
           return appConfigService.loadAppConfig();
         };
       }
