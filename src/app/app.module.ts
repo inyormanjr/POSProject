@@ -16,6 +16,7 @@ import { UserTableComponent } from './components/user-table/user-table.component
 import { UserModalComponent } from './components/modals/user-modal/user-modal.component';
 import { ConfirmComponent } from './components/modals/confirm/confirm.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { OAuthModule, OAuthService } from 'angular-oauth2-oidc';
 import { AuthService } from './services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 @NgModule({
@@ -32,6 +33,7 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
+    OAuthModule.forRoot(),
     HttpClientModule,
     AppRoutingModule,
     FlexLayoutModule,
@@ -43,6 +45,7 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   providers: [
     ErrorInterceptorProvider,
+    OAuthService,
     AuthService
   ],
   bootstrap: [AppComponent]

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { AlertifyService } from 'src/app/services/alertify.service';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -17,18 +18,14 @@ export class LoginComponent implements OnInit {
 
   login() {
       this.IsDone = false;
-      console.log(this.loginModel);
-      this.authService.login(this.loginModel).subscribe(result => {
-        this.alertify.message(localStorage.getItem('token'));
+      const result = this.authService.login(this.loginModel);
+      console.log(result);
+      if (result) {
         this.IsDone = true;
-      }, error => {
-          this.loginModel = {};
-          this.IsDone = true;
-          this.alertify.error(error);
-      }, () => {
+        this.alertify.message('success');
+      } else {
         this.IsDone = true;
-        console.log('test');
-      });
+      }
   }
 
 }
