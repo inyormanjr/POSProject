@@ -21,7 +21,6 @@ import { AuthService } from './services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AppConfigService } from './services/app-config.service';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +41,7 @@ import { AppConfigService } from './services/app-config.service';
     FlexLayoutModule,
     BrowserAnimationsModule,
     LayoutModule,
+    HttpClientModule,
     MaterialModule,
     FormsModule,
     ReactiveFormsModule
