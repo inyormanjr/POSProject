@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpInterceptor, HttpRequest, HttpErrorResponse, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import { DefaultOAuthInterceptor, OAuthNoopResourceServerErrorHandler } from 'angular-oauth2-oidc';
 
 
 @Injectable()
@@ -12,14 +13,12 @@ export class ErrorInterceptor implements HttpInterceptor {
    ): import('rxjs').Observable<import('@angular/common/http').HttpEvent<any>> {
        return next.handle(req).pipe(
            catchError(error => {
-               console.log(error);
                if (error.status === 401) {
                     return throwError(error.error.title);
                 }
 
                if (error.status === 400) {
-
-                    return throwError(error.Error.title);
+                   return throwError(error.error.error_description);
                 }
 
                if (error instanceof HttpErrorResponse) {
@@ -43,8 +42,9 @@ export class ErrorInterceptor implements HttpInterceptor {
    }
 }
 
-export const ErrorInterceptorProvider = {
+export const ErrorInterceptorProvider = [{
     provide: HTTP_INTERCEPTORS,
     useClass: ErrorInterceptor,
-    multi: true
-};
+    multi: true,
+}
+];

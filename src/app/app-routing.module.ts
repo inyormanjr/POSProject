@@ -6,7 +6,7 @@ import { AdminComponent } from './views/main/admin/admin.component';
 import { MaterialDashboardComponent } from './views/main/child/material-dashboard/material-dashboard.component';
 import { UserManagementComponent } from './views/main/child/user-management/user-management.component';
 
-const routes: Routes = [{path: '', component: AdminComponent},
+const routes: Routes = [{path: '', component: LoginComponent},
                         {path: 'login', component: LoginComponent},
                         {path: 'admin', component: AdminComponent, children: [
                           {path: 'dashboard', component:  MaterialDashboardComponent},
