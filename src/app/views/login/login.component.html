@@ -1,1 +1,30 @@
-<p>login works!</p>
+<div class="component-body">
+            <div class="login-box">
+                <img src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png" class="avatar" alt="">
+                <h1>YESPOS</h1>
+                <div class="form-container" fxLayout="column wrap" fxLayoutAlign="center stretch">
+                    <form *ngIf="IsDone" #loginForm="ngForm" (ngSubmit)="login()" fxLayout="column wrap" fxLayoutGap="30px">
+                        <div class="input-group">
+                            <p>Username</p>
+                            <input [(ngModel)]="loginModel.username" required type="text" name="username" placeholder="Enter username" autocomplete="off">
+                            <div *ngIf="loginForm.invalid && loginForm.dirty || loginForm.touched" class="invalid-input">
+                                <p>Invalid username*</p>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <p>Password</p>
+                            <input [(ngModel)]="loginModel.password" required type="password" name="password" placeholder="Enter Password">
+                            <div *ngIf="loginForm.invalid && loginForm.dirty || loginForm.touched" class="invalid-input">
+                                <p>Invalid password*</p>
+                            </div>
+                        </div>
+                        <input  type="submit" value="Login">
+                    </form>
+                    <div  *ngIf="!IsDone" fxLayout="row wrap" fxLayoutAlign="center stretch"  class="spinner-area">
+                     <mat-spinner></mat-spinner>
+                    </div>
+                </div>
+            </div>
+</div>
+
+
