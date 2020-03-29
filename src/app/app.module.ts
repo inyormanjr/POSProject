@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER  } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppComponent } from './app.component';
@@ -19,6 +19,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OAuthModule, OAuthService } from 'angular-oauth2-oidc';
 import { AuthService } from './services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
+import { AppConfigService } from './services/app-config.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,12 +41,24 @@ import { HttpClientModule } from '@angular/common/http';
     FlexLayoutModule,
     BrowserAnimationsModule,
     LayoutModule,
+    HttpClientModule,
     MaterialModule,
     FormsModule,
     ReactiveFormsModule
   ],
   providers: [
     ErrorInterceptorProvider,
+    {
+      provide: APP_INITIALIZER,
+      multi: true,
+      deps: [AppConfigService],
+      useFactory: (appConfigService: AppConfigService) => {
+        return () => {
+          //Make sure to return a promise!
+          return appConfigService.loadAppConfig();
+        };
+      }
+    },
     OAuthService,
     AuthService
   ],

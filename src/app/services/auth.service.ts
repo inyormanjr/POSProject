@@ -5,6 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { JwksValidationHandler } from 'angular-oauth2-oidc-jwks';
 import { AuthConfig, OAuthService } from 'angular-oauth2-oidc';
 import { map } from 'rxjs/operators';
+import { AppConfigService } from './app-config.service';
 @Injectable({
   providedIn: 'root'
 })
@@ -12,25 +13,13 @@ export class AuthService {
  authURL = environment.authApi;
  claims: any;
  token = null;
- authCodeFlowConfig: AuthConfig = {
-   issuer: 'https://yespos.azurewebsites.net/identity',
-   redirectUri: '',
-   clientId: 'client',
-   responseType: 'id_token token',
-   scope: 'storeapi',
-   tokenEndpoint: 'https://yespos.azurewebsites.net/identity/connect/token',
-   showDebugInformation: true,
-   requireHttps: false,
-   dummyClientSecret: '511536EF-F270-4058-80CA-1C89C192F69A'
- };
-
-  constructor(private http: HttpClient, private oauthService: OAuthService) {
-    this.oauthService.configure(this.authCodeFlowConfig);
+  constructor(private http: HttpClient, private oauthService: OAuthService, private appConfigService: AppConfigService) {
+    this.oauthService.configure(this.appConfigService.authConfig);
   }
 
   login(model: any): any {
-    const httpHeader = new HttpHeaders().append('Authorization', 'Basic Y2xpZW50OjUxMTUzNkVGLUYyNzAtNDA1OC04MENBLTFDODlDMTkyRjY5QQ==');
-    this.oauthService.fetchTokenUsingPasswordFlow(model.username, model.password, httpHeader).then(() => {
+    
+    this.oauthService.fetchTokenUsingPasswordFlow(model.username, model.password).then(() => {
          const token = this.oauthService.getAccessToken();
          localStorage.setItem('token', token);
          console.log(token);
