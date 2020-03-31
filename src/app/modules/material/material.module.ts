@@ -14,7 +14,10 @@ import { MatCardModule } from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { MatDialogModule, MatDialog } from '@angular/material/dialog';
+import {MatBadgeModule} from '@angular/material/badge';
 import { MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatExpansionModule} from '@angular/material/expansion';
+
 
 
 
@@ -38,7 +41,9 @@ import { MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatTableModule,
     MatSlideToggleModule,
     MatDialogModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatBadgeModule,
+    MatExpansionModule
   ],
   exports: [
     MatIconModule,
@@ -57,7 +62,9 @@ import { MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatTableModule,
     MatSlideToggleModule,
     MatDialogModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatBadgeModule,
+    MatExpansionModule
   ],
   providers: [
   MatDialog

@@ -20,6 +20,12 @@ import { OAuthModule, OAuthService } from 'angular-oauth2-oidc';
 import { AuthService } from './services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AppConfigService } from './services/app-config.service';
+import { MainComponent } from './views/store/main/main.component';
+import { StoreDashboardComponent } from './views/store/childview/store-dashboard/store-dashboard.component';
+import { StoreNavComponent } from './components/store/store-nav/store-nav.component';
+import { StoreUsersManagementComponent } from './views/store/childview/store-users-management/store-users-management.component';
+import { StoreBranchDetailComponent } from './views/store/childview/store-branch-detail/store-branch-detail.component';
+import { StoreProfileComponent } from './views/store/childview/store-profile/store-profile.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +38,12 @@ import { AppConfigService } from './services/app-config.service';
     UserTableComponent,
     UserModalComponent,
     ConfirmComponent,
+    MainComponent,
+    StoreDashboardComponent,
+    StoreNavComponent,
+    StoreUsersManagementComponent,
+    StoreBranchDetailComponent,
+    StoreProfileComponent,
   ],
   imports: [
     BrowserModule,

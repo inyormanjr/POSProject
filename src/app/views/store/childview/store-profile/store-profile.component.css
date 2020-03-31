@@ -1,0 +1,17 @@
+.body{
+    width: 100%;
+    justify-content: center;
+}
+
+.sub-menu .action-buttons {
+   margin-left: 15px;
+}
+
+.body-content {
+    margin-top: 40px;
+    width: 90%;
+}
+
+mat-card {
+    width: 100%;
+}

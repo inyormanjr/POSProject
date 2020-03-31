@@ -1,0 +1,25 @@
+<mat-toolbar>
+    <span class="trailing">
+        <h1>Branch {{branchId}}</h1>
+    </span>
+    <span class="nav-spacer"></span>
+    <span>
+        <button [matMenuTriggerFor]="menuRef" mat-icon-button >
+            <mat-icon class="mat-18">more_vert</mat-icon>
+        </button>
+        <mat-menu #menuRef="matMenu">
+            <button mat-menu-item>
+              <mat-icon>dialpad</mat-icon>
+              <span>Redial</span>
+            </button>
+            <button mat-menu-item>
+              <mat-icon>voicemail</mat-icon>
+              <span>Check voice mail</span>
+            </button>
+            <button mat-menu-item>
+              <mat-icon>notifications_off</mat-icon>
+              <span>Disable alerts</span>
+            </button>
+          </mat-menu>
+    </span>
+</mat-toolbar>

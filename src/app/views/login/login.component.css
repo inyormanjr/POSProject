@@ -73,7 +73,6 @@ h1 {
 
 
 
-
 .login-box input[type="submit"] {
     border: none;
     outline: none;
@@ -92,4 +91,9 @@ h1 {
 
 .login-box input[type="submit"]:disabled {
     background: grey;
+}
+
+.spinner-area {
+    margin-top: 30%;
+    text-align: center;
 }
