@@ -2,16 +2,38 @@
     width: 100%;
     justify-content: center;
 }
-
+.action-buttons {
+    display: flex;
+   justify-content: flex-end;
+}
 .sub-menu .action-buttons {
-   margin-left: 15px;
+    margin-bottom: 5px;
+}
+.sub-menu .action-buttons button {
+    width: 150px;
 }
 
 .body-content {
     margin-top: 40px;
     width: 90%;
 }
-
-mat-card {
+.basic-info-form {
+margin:20px;
+}
+mat-form-field {
+    font-size: 18px;
+}
+ .full-width{
     width: 100%;
+}
+.col-one-with {
+ width: 20%;
+}
+
+.col-two-width {
+    width: 30%;
+}
+
+.margin-left {
+    margin-left: 15px;
 }

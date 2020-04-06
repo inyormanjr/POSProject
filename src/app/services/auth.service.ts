@@ -26,6 +26,7 @@ jwtHelper: JwtHelperService = new JwtHelperService();
          localStorage.setItem('token', token);
          this.token = token;
          this.decodedToken = this.jwtHelper.decodeToken(token);
+         console.log(this.decodedToken);
        }, error => {
           this.alertify.error(error);
        });

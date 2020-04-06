@@ -1,0 +1,25 @@
+mat-card {
+    padding: 0px 0px 20px 0px !important;
+    margin: none !important;
+    width: 100%;
+    border: 0  !important;
+    box-shadow: none !important;
+}
+
+mat-card-header {
+    padding: 15px 10px 0px 10px;
+    color:white;
+}
+
+mat-card-subtitle {
+    color:white;
+}
+
+form {
+    padding: 10px 10px 10px 10px;
+}
+
+mat-card-actions {
+    margin:0px 20px 10px 100px;
+}
+

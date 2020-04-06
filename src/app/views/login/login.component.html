@@ -19,6 +19,10 @@
                             </div>
                         </div>
                         <input [disabled]="loginForm.invalid" type="submit" value="Login">
+                        <button mat-raised-button  class="google-button">
+                            <i class="fa fa-google" aria-hidden="true"></i>
+                            Login with google
+                        </button>
                     </form>
                     <div  *ngIf="!IsDone" fxLayout="row wrap" fxLayoutAlign="center stretch"  class="spinner-area">
                      <mat-spinner></mat-spinner>

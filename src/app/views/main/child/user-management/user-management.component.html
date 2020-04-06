@@ -1,31 +1,56 @@
-<mat-toolbar fxFlexAlign="start"  fxLayout="row wrap"  fxLayoutGap="20px">
-  <h3>User Management</h3>
-</mat-toolbar>
+<div class="container">
+  <app-store-nav></app-store-nav>
+  <mat-drawer-container class="example-container">
+      <mat-drawer mode="side" opened class="drawer-content">
+          <mat-nav-list>
+              <a mat-list-item >
+                  <mat-icon class="mat-18">dashboard</mat-icon>
+                  <small class="text-muted">Dashboard</small>
+              </a>
+              <mat-expansion-panel [hideToggle]="false">
+                  <mat-expansion-panel-header>
+                      <mat-icon class="mat-18">store_mall_directory</mat-icon>
+                      <p>Store Management</p>
+                  </mat-expansion-panel-header>
+                  <a  mat-button>Stores </a>
+              </mat-expansion-panel>
 
-<div  fxLayout='column wrap' class="content-container">
-  <span fxLayout="row" fxLayoutAlign="space-between"  class="menu">
-    <form >
-      <mat-form-field >
-        <mat-label>Search User</mat-label>
-        <input matInput placeholder="Ex. lebron James" value="">
-      </mat-form-field>
-      <button mat-icon-button >
-          <mat-icon class="mat-18">search</mat-icon>
-      </button>
-    </form>
+              <mat-expansion-panel [hideToggle]="false">
+                  <mat-expansion-panel-header>
+                      <mat-icon class="mat-18">category</mat-icon>
+                      <p>Item Management</p>
+                  </mat-expansion-panel-header>
 
-    <span class="button-group">
-      <button mat-icon-button (click)="showCreateDialog()" >
-          <mat-icon class="mat-18">add</mat-icon>
-      </button>
-      <button mat-icon-button >
-        <mat-icon class="mat-18">refresh</mat-icon>
-    </button>
-    </span>
-  </span>
-  <app-user-table [users]="dataSource"></app-user-table>
- 
+                  <a  mat-button>
+                      <i class="fa fa-product-hunt" aria-hidden="true"></i> Master Items
+                  </a>
+                  <a  mat-button>
+                      <mat-icon class="mat-18">storage</mat-icon> Stocks
+                  </a>
 
+              </mat-expansion-panel>
+
+              <mat-expansion-panel [hideToggle]="false">
+                  <mat-expansion-panel-header>
+                      <mat-icon class="mat-18">people</mat-icon>
+                      <p>Users</p>
+                  </mat-expansion-panel-header>
+
+              </mat-expansion-panel>
+
+              <mat-expansion-panel [hideToggle]="false">
+                  <mat-expansion-panel-header>
+                      <mat-icon class="mat-18">assignment</mat-icon>
+                      <p>Reports</p>
+                  </mat-expansion-panel-header>
+
+              </mat-expansion-panel>
+          </mat-nav-list>
+      </mat-drawer>
+      <mat-drawer-content>
+          <router-outlet>
+             
+          </router-outlet>
+      </mat-drawer-content>
+  </mat-drawer-container>
 </div>
-
-  

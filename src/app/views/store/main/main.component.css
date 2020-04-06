@@ -1,45 +1,10 @@
 .container {
-    display: flex;
-    flex-flow: column;
     height: 100%;
 }
+app-store-nav {
+    height: 10px;
+}
 
-.example-container {
-    flex-grow : 1;
-  }
-
-  .drawer-content {
-      width: 15%;
-  }
-
-  mat-expansion-panel {
-      padding: 0 !important;
-      margin: 0 !important;
-      border: 0 !important;
-      box-shadow: none !important;
-  }
-
-  mat-expansion-panel a {
-      width: 100%;
-      margin: 0 !important;
-  }
-
-  mat-expansion-panel-header p {
-      margin-left: 10px;
-  }
-
-  .icon-trail {
-      text-align: center;
-  }
-  .store-list {
-      margin:0;
-      padding:0;
-      margin-top: 20px;
-  }
-
-  .store-list h3 {
-      text-align: center;
-      margin:0;
-      margin-top: 10px;
-      margin-bottom: 10px;
-  }
+router-outlet {
+    height: 80%;
+}

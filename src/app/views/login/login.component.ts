@@ -36,11 +36,10 @@ export class LoginComponent implements OnInit {
   login() {
       this.manageSpinner();
       this.loginModel = Object.assign({}, this.loginForm.value);
-      console.log(this.loginModel);
       this.authService.login(this.loginModel).then(() => {
         this.manageSpinner();
         if (this.authService.token != null) {
-          this.router.navigate(['/admin']);
+          this.router.navigate(['/store']);
         }
       });
   }

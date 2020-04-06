@@ -5,8 +5,13 @@
 export const environment = {
   production: false,
   resourceApi: '',
-  authApi: 'https://yespos.azurewebsites.net/identity/connect/authorize'
+  storeApiUrl: 'https://yespos.azurewebsites.net',
+  whiteList: ['yespos.azurewebsites.net'],
+  blackList: ['yespos.azurewebsites.net/connect/authorize'],
+  authApi: 'https://yespos.azurewebsites.net/connect/authorize'
 };
+
+
 
 /*
  * For easier debugging in development mode, you can import the following file

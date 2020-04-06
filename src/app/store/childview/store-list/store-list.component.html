@@ -1,0 +1,29 @@
+<mat-toolbar class="tool-bar-header">
+      <span><h1>Stores Selection</h1></span>
+  </mat-toolbar>
+<div class="container">
+    <div class="content" fxLayout="column" fxLayoutAlign="start stretch">
+      <div class="menu" fxLayout="row wrap" fxLayoutAlign="start center">
+         <span class="entry-area">
+          <mat-form-field appearance="outline" color="primary">
+            <mat-label>Store Name</mat-label>
+            <input matInput placeholder="Placeholder">
+            <mat-icon matSuffix>search</mat-icon>
+          </mat-form-field>
+         </span>
+         <span class="nav-spacer"></span>
+         <span class="option-area">
+          <button mat-icon-button (click)="showNewStoreDialog()">
+            <mat-icon class="mat-18">add</mat-icon>
+        </button>
+           <button mat-icon-button >
+               <mat-icon class="mat-18">refresh</mat-icon>
+           </button>
+         </span>
+      </div>
+      <div class="store-list-container" fxLayout="row wrap" 
+              fxLayoutAlign="center stretch">
+        <app-store-card *ngFor="let store of stores"></app-store-card>
+    </div>
+    </div>
+</div>

@@ -4,9 +4,32 @@
 @import '../node_modules/alertifyjs/build/css/themes/bootstrap.min.css';
 @import '../node_modules/ngx-bootstrap/datepicker/bs-datepicker.css';
 
-html, body { height: 100%; }
+html, body { height: 100%; background-color: #ECF0F5; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
 
 .nav-spacer {
     flex: 1 1 auto;
 }
+
+.mat-toolbar-default {
+    background-color: white;
+    border-radius: 15px;
+}
+
+.nav-primary {
+    background-color: #357CA5 !important;
+    color: white;
+}
+
+.background-secondary {
+    background-color: #3c8dbc;
+    color: white;
+}
+
+.background-primary {
+    background-color: #357CA5;
+}
+
+.myapp-no-padding-dialog .mat-dialog-container {
+    padding: 0;
+  }

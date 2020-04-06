@@ -10,25 +10,50 @@ import { StoreDashboardComponent } from './views/store/childview/store-dashboard
 import { StoreUsersManagementComponent } from './views/store/childview/store-users-management/store-users-management.component';
 import { StoreBranchDetailComponent } from './views/store/childview/store-branch-detail/store-branch-detail.component';
 import { StoreProfileComponent } from './views/store/childview/store-profile/store-profile.component';
+import { StoreListResolver } from './resolver/store.info.resolver';
+import { StoreListComponent } from './store/childview/store-list/store-list.component';
+import { ComponentTesterComponent } from './component-tester/component-tester.component';
+import { StoreManagementComponent } from './store/childview/store-management/store-management.component';
+import { resolve } from 'dns';
 
-const routes: Routes = [{path: '', component: LoginComponent},
-                        {path: 'login', component: LoginComponent},
-                        {path: 'admin', component: AdminComponent, children: [
-                          {path: '', component:  MaterialDashboardComponent},
-                          {path: 'dashboard', component:  MaterialDashboardComponent},
-                          {path: 'users', component: UserManagementComponent}
-                        ]},
-                        {path: 'store', component: MainComponent, children: [
-                          {path: '', component: StoreDashboardComponent},
-                          {path: 'dashboard', component: StoreDashboardComponent},
-                          {path: 'storeprofile', component: StoreProfileComponent},
-                          {path: 'branch/:id', component: StoreBranchDetailComponent},
-                          {path: 'users', component: StoreUsersManagementComponent},
-                        ]}
-                        ];
+const routes: Routes = [
+  { path: '', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'tester', component: ComponentTesterComponent },
+  {
+    path: 'admin',
+    component: AdminComponent,
+    children: [
+      { path: '', component: MaterialDashboardComponent },
+      { path: 'dashboard', component: MaterialDashboardComponent },
+      { path: 'users', component: UserManagementComponent }
+    ]
+  },
+  {
+    path: 'store',
+    component: MainComponent,
+    runGuardsAndResolvers: 'always',
+    children: [
+      { path: '', component: StoreListComponent,  resolve: {stores: StoreListResolver}},
+      { path: 'list', component: StoreListComponent,  },
+      {
+        path: 'management',
+        component: StoreManagementComponent,
+        children: [
+          { path: '', component: StoreDashboardComponent },
+          { path: 'dashboard', component: StoreDashboardComponent },
+          {
+            path: 'branch:id',
+            component: StoreBranchDetailComponent,
+          }
+        ]
+      }
+    ]
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

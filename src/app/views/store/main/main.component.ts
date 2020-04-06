@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, NavigationStart, NavigationEnd, Event } from '@angular/router';
+import { Store } from 'src/app/models/store';
+import { StoreService } from 'src/app/services/store.service';
 
 @Component({
   selector: 'app-main',
@@ -7,9 +9,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-
-  constructor(private router: Router) { }
-
+  showLoadingScreen = false;
+  constructor(private router: Router, private activatedRute: ActivatedRoute,
+              ) {
+                this.router.events.subscribe((routerEvent: Event) => {
+                  if (routerEvent instanceof NavigationStart) {
+                    this.showLoadingScreen = true;
+                  }
+                  if (routerEvent instanceof NavigationEnd) {
+                    this.showLoadingScreen = false;
+                  }
+                });
+              }
   ngOnInit(): void {
   }
 
@@ -19,6 +30,10 @@ export class MainComponent implements OnInit {
 
   navigateToStoreProfile() {
     this.router.navigate(['store/storeprofile']);
+  }
+
+  navigateToStoreList() {
+    this.router.navigate(['store/list']);
   }
 
   navigateToBranchById(id: number) {

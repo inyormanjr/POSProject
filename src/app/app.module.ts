@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import 'hammerjs';
 import { LayoutModule } from '@angular/cdk/layout';
 import { ErrorInterceptorProvider } from './services/error.interceptor';
 import { MaterialNavComponent } from './components/material-nav/material-nav.component';
@@ -26,6 +27,20 @@ import { StoreNavComponent } from './components/store/store-nav/store-nav.compon
 import { StoreUsersManagementComponent } from './views/store/childview/store-users-management/store-users-management.component';
 import { StoreBranchDetailComponent } from './views/store/childview/store-branch-detail/store-branch-detail.component';
 import { StoreProfileComponent } from './views/store/childview/store-profile/store-profile.component';
+import { JwtModule } from '@auth0/angular-jwt';
+import { environment } from 'src/environments/environment';
+import { StoreListResolver } from './resolver/store.info.resolver';
+import { StoreListComponent } from './store/childview/store-list/store-list.component';
+import { StoreCardComponent } from './components/store/store-card/store-card.component';
+import { ComponentTesterComponent } from './component-tester/component-tester.component';
+import { StoreFormModalComponent } from './components/store/store-form-modal/store-form-modal.component';
+import { StoreService } from './services/store.service';
+import { StoreManagementComponent } from './store/childview/store-management/store-management.component';
+
+export function tokenGetter() {
+  const token = localStorage.getItem('token');
+  return token;
+}
 
 @NgModule({
   declarations: [
@@ -44,6 +59,11 @@ import { StoreProfileComponent } from './views/store/childview/store-profile/sto
     StoreUsersManagementComponent,
     StoreBranchDetailComponent,
     StoreProfileComponent,
+    StoreListComponent,
+    StoreCardComponent,
+    ComponentTesterComponent,
+    StoreFormModalComponent,
+    StoreManagementComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,9 +76,17 @@ import { StoreProfileComponent } from './views/store/childview/store-profile/sto
     HttpClientModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    JwtModule.forRoot( {
+      config: {
+        tokenGetter,
+        whitelistedDomains: environment.whiteList,
+        blacklistedRoutes: [environment.authApi]
+      }
+    })
   ],
   providers: [
+    StoreListResolver,
     ErrorInterceptorProvider,
     {
       provide: APP_INITIALIZER,
@@ -72,7 +100,8 @@ import { StoreProfileComponent } from './views/store/childview/store-profile/sto
       }
     },
     OAuthService,
-    AuthService
+    AuthService,
+    StoreService
   ],
   bootstrap: [AppComponent]
 })

@@ -8,7 +8,7 @@
 
 .login-box {
     width: 450px;
-    height: 500px;
+    height: 450px;
     background: rgba(0,0,0,0.5);
     color: #fff;
     top: 50%;
@@ -96,4 +96,10 @@ h1 {
 .spinner-area {
     margin-top: 30%;
     text-align: center;
+}
+
+.google-button {
+    background-color: #4285f4;
+    width: 100%;
+    color:white;
 }

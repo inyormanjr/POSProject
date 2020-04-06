@@ -5,25 +5,61 @@
 <div class="body" fxLayout="row" fxFlexAlign="center">
     <div class="body-content">
         <div class="sub-menu">
-            <span class="action-buttons">
-                <button mat-flat-button color="primary">Edit</button>
-                <button mat-flat-button color="warn">Save</button>
+            
+            <span class="action-buttons"  fxLayout="row" fxFlexAlign="end" fxLayoutGap="5px">
+                <button mat-raised-button color="primary">
+                    <mat-icon class="mat-18">edit</mat-icon>
+                    Edit</button>
+                <button mat-raised-button color="warn" [disabled]="!storeProfileForm.dirty">
+                    <mat-icon class="mat-18">save</mat-icon>
+                    Save</button>
             </span>
         </div>
-        <mat-card>
-            <div class="example-container">
-                <form action="">
-                    <mat-form-field appearance="fill">
-                        <mat-label>Input</mat-label>
-                        <input matInput>
-                      </mat-form-field>
-                      <br>
-                      <mat-form-field appearance="fill">
-                        <mat-label>Textarea</mat-label>
-                        <textarea matInput></textarea>
-                      </mat-form-field>
-                </form>
-              </div>
-        </mat-card>
+        <mat-accordion displayMode="default" [multi]="false"
+                       [hideToggle]="false">
+            <mat-expansion-panel [hideToggle]="false" [expanded]="true">
+                <mat-expansion-panel-header>
+                    <mat-icon class="mat-18" style="margin-right: 10px;">info</mat-icon>
+                    Basic Info
+                </mat-expansion-panel-header>
+                <form [formGroup]="storeProfileForm" class="basic-info-form">
+                    <div class="form-row" fxLayout="row" fxLayoutAlign="space-around stretch" fxLayoutGap="5px">
+                        <mat-form-field fxFlex="60">
+                            <mat-label>Store Name</mat-label>
+                            <input  matInput placeholder="Ex. 7/11 Store" formControlName="name" >
+                          </mat-form-field>
+                          <mat-form-field fxFlex="40" >
+                            <mat-label>Short Name</mat-label>
+                            <input  matInput placeholder="Ex. 711" formControlName="shortName" >
+                          </mat-form-field>
+                    </div>
+                    <div class="form-row" fxLayout="row" fxLayoutAlign="start stretch" fxLayoutGap="5px">
+                        <mat-form-field fxFlex=70>
+                            <mat-label>Address</mat-label>
+                            <textarea matInput placeholder="Ex. Parramatta, Sydney Australia" formControlName="address"></textarea>
+                          </mat-form-field>
+                          <mat-form-field fxFlex=30>
+                            <mat-label>Postal Code</mat-label>
+                            <textarea matInput placeholder="Ex. 1520" formControlName="postalCode"></textarea>
+                          </mat-form-field>
+                    </div>
+
+                    <div class="form-row" fxLayout="row" fxLayoutAlign="start stretch" fxLayoutGap="5px">
+                        <mat-form-field fxFlex=30>
+                            <mat-label>TIN</mat-label>
+                            <input matInput placeholder="414041-1424-14214" formControlName="tin">
+                          </mat-form-field>
+                          <mat-form-field fxFlex=30>
+                            <mat-label>Phone Number</mat-label>
+                            <input matInput placeholder="414041-1424-14214" formControlName="contact">
+                          </mat-form-field>
+                    </div>
+                  </form>
+            </mat-expansion-panel>
+            <mat-expansion-panel [hideToggle]="false">
+                <mat-expansion-panel-header>Other Info</mat-expansion-panel-header>
+                 Panel body
+            </mat-expansion-panel>
+        </mat-accordion>
     </div>
 </div>
