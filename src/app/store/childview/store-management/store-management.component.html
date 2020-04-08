@@ -1,9 +1,29 @@
-<div class="container" fxLayout="column wrap" fxLayoutAlign="start  stretch">
+<div class="container" fxLayout="column" fxLayoutAlign="start">
     <mat-drawer-container class="example-container">
         <mat-drawer mode="side" opened class="drawer-content">
+            <div class="store-details" fxLayout="column wrap">
+                <img src="https://cdn.britannica.com/16/204716-050-8BB76BE8/Walmart-store-Mountain-View-California.jpg" alt="">
+                <div class="store-info">
+                    <a mat-icon-button href="">
+                        <mat-icon class="mat-18">ligature</mat-icon>
+                    </a>
+                <h1>{{store.name}}</h1>
+                <p>{{store.address}}</p>
+                </div>
+            </div>
            <mat-nav-list>
-               <a mat-list-item href="">Dashboard</a>
-               <a mat-list-item href="">Management</a>
+               <a mat-list-item >Dashboard</a>
+               <a mat-list-item [routerLink]="">Branches</a>
+               <mat-accordion displayMode="flat" [multi]="true" color="dark"
+                              [hideToggle]="false">
+                   <mat-expansion-panel [hideToggle]="false">
+                       <mat-expansion-panel-header>User Management</mat-expansion-panel-header>
+                       <mat-nav-list>
+                        <a mat-list-item >Staff</a>
+                       </mat-nav-list>
+                   </mat-expansion-panel>
+                   
+               </mat-accordion>
            </mat-nav-list>
         </mat-drawer>
         <mat-drawer-content>

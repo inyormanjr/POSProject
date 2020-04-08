@@ -13,6 +13,13 @@ export class StoreService {
   getStoresByOwner(): Observable<Store[]> {
     return this.http.get<Store[]>(`${environment.storeApiUrl}/store/api/store`);
   }
+  getStoreById(id: any): Observable<Store> {
+    return this.http.get<Store>(`${environment.storeApiUrl}/store/api/store/${id}`);
+  }
+
+  getStoreStaffByStoreId(id: any) {
+    return this.http.get(`${environment.storeApiUrl}/store/api/store/${id}/staff`);
+  }
 
   saveNewStore(store: Store) {
     return this.http.post<Store>(`${environment.storeApiUrl}/store/api/store`, store);

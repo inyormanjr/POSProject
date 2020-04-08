@@ -10,7 +10,7 @@ import { StoreDashboardComponent } from './views/store/childview/store-dashboard
 import { StoreUsersManagementComponent } from './views/store/childview/store-users-management/store-users-management.component';
 import { StoreBranchDetailComponent } from './views/store/childview/store-branch-detail/store-branch-detail.component';
 import { StoreProfileComponent } from './views/store/childview/store-profile/store-profile.component';
-import { StoreListResolver } from './resolver/store.info.resolver';
+import { StoreListResolver, StoreInfoResolver } from './resolver/store.resolver';
 import { StoreListComponent } from './store/childview/store-list/store-list.component';
 import { ComponentTesterComponent } from './component-tester/component-tester.component';
 import { StoreManagementComponent } from './store/childview/store-management/store-management.component';
@@ -36,9 +36,9 @@ const routes: Routes = [
     children: [
       { path: '', component: StoreListComponent,  resolve: {stores: StoreListResolver}},
       { path: 'list', component: StoreListComponent,  },
-      {
-        path: 'management',
-        component: StoreManagementComponent,
+       {
+        path: 'management/:id',
+        component: StoreManagementComponent, resolve: {store: StoreInfoResolver},
         children: [
           { path: '', component: StoreDashboardComponent },
           { path: 'dashboard', component: StoreDashboardComponent },
@@ -47,7 +47,7 @@ const routes: Routes = [
             component: StoreBranchDetailComponent,
           }
         ]
-      }
+       }
     ]
   }
 ];

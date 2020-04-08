@@ -4,13 +4,8 @@
     </div>
    <mat-card-content align="center">
        <mat-card-title>
-           <h1>Store One</h1>
+           <h1>{{store.name}}</h1>
         </mat-card-title>
-       <mat-card-subtitle>
-          <small class="text-muted">
-            <p>Parramatta, NSW</p>
-          </small> 
-       </mat-card-subtitle>
     </mat-card-content>
     <mat-divider class="divider" color="white">
     </mat-divider>
@@ -18,8 +13,8 @@
         <a mat-icon-button  matTooltip="Info about the action">
             <mat-icon  class="mat-18">edit</mat-icon>
         </a>
-        <a mat-icon-button >
-            <mat-icon class="mat-18">info</mat-icon>
+        <a mat-icon-button  (click)="navigateToManagement()">
+            <mat-icon class="mat-18" >info</mat-icon>
         </a>
         <a mat-icon-button >
             <mat-icon class="mat-18">delete</mat-icon>

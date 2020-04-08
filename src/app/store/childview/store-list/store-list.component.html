@@ -16,14 +16,15 @@
           <button mat-icon-button (click)="showNewStoreDialog()">
             <mat-icon class="mat-18">add</mat-icon>
         </button>
-           <button mat-icon-button >
+           <button mat-icon-button (click)="refreshStoreList()" >
                <mat-icon class="mat-18">refresh</mat-icon>
            </button>
          </span>
       </div>
       <div class="store-list-container" fxLayout="row wrap" 
-              fxLayoutAlign="center stretch">
-        <app-store-card *ngFor="let store of stores"></app-store-card>
+              fxLayoutAlign="center stretch" *ngIf="stores$ | async as stores">
+        <app-store-card   *ngFor="let store of stores " [store]="store"></app-store-card>
     </div>
+    <mat-spinner *ngIf="!stores$"></mat-spinner>
     </div>
 </div>

@@ -4,7 +4,7 @@
         "redirectUri": "",
         "clientId": "client",
         "responseType": "id_token token",
-        "scope": "storeapi",
+        "scope": "storeapi openid storeposition email profile",
         "tokenEndpoint": "https://yespos.azurewebsites.net/connect/token",
         "showDebugInformation": true,
         "requireHttps": false,

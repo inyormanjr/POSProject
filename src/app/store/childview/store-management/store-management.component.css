@@ -1,6 +1,4 @@
 .container {
-    display: flex;
-    flex-flow: column;
     height: 100%;
 }
 
@@ -10,36 +8,43 @@
 
   .drawer-content {
       width: 15%;
+      background-color: #1A2226;
+      color:white;
   }
 
-  mat-expansion-panel {
-      padding: 0 !important;
-      margin: 0 !important;
-      border: 0 !important;
-      box-shadow: none !important;
+  .store-details {
+      height: 200px;
   }
 
-  mat-expansion-panel a {
+  .store-details img {
+      height: 100%;
       width: 100%;
-      margin: 0 !important;
+      filter: brightness(40%); 
+
   }
 
-  mat-expansion-panel-header p {
-      margin-left: 10px;
+  .store-info {
+      margin-top: 50px;
+      margin-left: 20px;
+      position: absolute;
+      float: inline-end;
+      font-size: 24px;
   }
 
-  .icon-trail {
-      text-align: center;
-  }
-  .store-list {
-      margin:0;
-      padding:0;
-      margin-top: 20px;
+  mat-nav-list {
+      background-color: #222D32;
   }
 
-  .store-list h3 {
-      text-align: center;
-      margin:0;
-      margin-top: 10px;
-      margin-bottom: 10px;
+  mat-nav-list a {
+      color:white;
   }
+
+ mat-accordion, mat-expansion-panel {
+     color: white;
+     background-color: transparent !important;
+ }
+
+ .mat-expansion-indicator::after {
+     color: white;
+     background-color: black;
+ }

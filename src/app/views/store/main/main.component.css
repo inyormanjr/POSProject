@@ -1,10 +1,20 @@
-.container {
+.body {
+    margin: 0;
+    padding: 0;
     height: 100%;
 }
-app-store-nav {
-    height: 10px;
+
+.nav {
+    margin: 0;
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    height: 6%;
 }
 
-router-outlet {
-    height: 80%;
+.content {
+    margin: 0;
+    padding: 0;
+    height: 94%;
 }

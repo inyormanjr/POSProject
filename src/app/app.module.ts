@@ -29,7 +29,7 @@ import { StoreBranchDetailComponent } from './views/store/childview/store-branch
 import { StoreProfileComponent } from './views/store/childview/store-profile/store-profile.component';
 import { JwtModule } from '@auth0/angular-jwt';
 import { environment } from 'src/environments/environment';
-import { StoreListResolver } from './resolver/store.info.resolver';
+import { StoreListResolver, StoreInfoResolver } from './resolver/store.resolver';
 import { StoreListComponent } from './store/childview/store-list/store-list.component';
 import { StoreCardComponent } from './components/store/store-card/store-card.component';
 import { ComponentTesterComponent } from './component-tester/component-tester.component';
@@ -87,6 +87,7 @@ export function tokenGetter() {
   ],
   providers: [
     StoreListResolver,
+    StoreInfoResolver,
     ErrorInterceptorProvider,
     {
       provide: APP_INITIALIZER,

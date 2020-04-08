@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Store } from 'src/app/models/store';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-store-card',
@@ -8,10 +9,14 @@ import { Store } from 'src/app/models/store';
 })
 export class StoreCardComponent implements OnInit {
   @Input() store: Store;
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
 
+  }
+
+  navigateToManagement() {
+    this.router.navigate(['store/management/' + this.store.id]);
   }
 
 }

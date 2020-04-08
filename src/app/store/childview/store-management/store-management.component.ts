@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRouteSnapshot, ActivatedRoute, ParamMap } from '@angular/router';
+import { Store } from 'src/app/models/store';
 
 @Component({
   selector: 'app-store-management',
@@ -6,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./store-management.component.css']
 })
 export class StoreManagementComponent implements OnInit {
-
-  constructor() { }
+  store: Store;
+  constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.activatedRoute.data.subscribe(data => {
+      this.store = data.store;
+    });
   }
 
 }
